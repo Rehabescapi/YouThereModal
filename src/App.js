@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
-import AppTimeout from './AppTimeout'
+import AppTimeout from './YouStillThere/AppTimeout'
 
 import { DefaultComponent,LogoutMessage} from './TestViews'
 
