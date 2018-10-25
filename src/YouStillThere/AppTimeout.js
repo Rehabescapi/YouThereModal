@@ -74,8 +74,8 @@ class AppTimeOut extends Component {
 }
 
 AppTimeOut.propTypes ={
-  View1 : PropTypes.func.isRequired,
-  View2 : PropTypes.func.isRequired,
+  View1 : PropTypes.func,
+  View2 : PropTypes.func,
   mainTimeout : PropTypes.number,
   modalTimeout : PropTypes.number,
 }

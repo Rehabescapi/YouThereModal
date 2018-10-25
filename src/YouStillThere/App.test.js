@@ -15,14 +15,14 @@ it('renders without crashing', () => {
 describe(' happyPath', function () {
 it('defaults to state 1', () => {
 
-  const component = shallow(<AppTimeout/>);
+  const component = shallow(<AppTimeout />);
   expect(component.state().isLoggedIn).toEqual(1);
 
   
 })
 
 it('continues to state 2', () => {
-  const component = shallow(<AppTimeout/>);
+  const component = shallow(<AppTimeout />);
 
   component.instance().tick();
   expect(component.state().isLoggedIn).toEqual(2);
@@ -41,7 +41,7 @@ it('continues from state 3 to state 2', () => {
 })
 
 it('Can return from state 2 to state 1', () => {
-  const component = shallow(<AppTimeout/>);
+  const component = shallow(<AppTimeout />);
 
 
   component.instance().tick();
