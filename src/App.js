@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import './App.css';
 import AppTimeout from './YouStillThere/AppTimeout'
 
-import { DefaultComponent,LogoutMessage} from './TestViews'
+//Put token components inside AppTimeout as default views
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-       <AppTimeout View1={DefaultComponent} View2={LogoutMessage} />
+       <AppTimeout />
       </div>
     );
   }

@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
 import './component.css';
-import Modal from '../Modal'
-import { CheckInButton,ResetButton} from './ButtonOptions'
-import {PropTypes } from 'prop-types'
+import Modal from './Modal'
+import {PropTypes} from 'prop-types'
+import { DefaultComponent,LogoutComponent} from './TestViews'
 
-
-//Add <div id="modal-root"></div> in public html 
 class AppTimeOut extends Component {
-  
   constructor(props) {
     super(props);
-    this.state = {isLoggedIn: 1,
+    this.state = {isLoggedIn: 0,
     timeToGo : -1};
   }
 
   componentDidMount() {
-   this.handleLoginClick()
+   this.startTimer()
   }
 
-  handleLoginClick =() => {
+  startTimer =() => {
     clearInterval(this.interval);
     this.interval = setInterval(
       () => {
@@ -29,7 +26,6 @@ class AppTimeOut extends Component {
         }else {
           this.tick()
         }
-
     },
     1000)
     this.setState({isLoggedIn: 1 ,timeToGo: this.props.mainTimeout});
@@ -44,7 +40,7 @@ class AppTimeOut extends Component {
     this.setState({isLoggedIn : 3, timeToGo:0});
   }
 
-  tick() {
+  tick =() => {
     if(this.state.isLoggedIn === 1){
       this.EnableModal();
     }else{
@@ -52,21 +48,36 @@ class AppTimeOut extends Component {
     }
   }
 
-  render() {
-    const {isLoggedIn, timeToGo} = this.state;
-    let button;
-    const count = (timeToGo > 0) ? timeToGo : ""
-   if (isLoggedIn === 2) {
-      button = <Modal ><CheckInButton onClick={this.handleLoginClick} /></Modal>
-    } else if (isLoggedIn === 3){
-      button = <ResetButton onClick={this.handleLoginClick} />
+  renderSwitch = () => {
+    const {isLoggedIn} = this.state;
+    switch (isLoggedIn){
+      case 1:
+        return undefined;  
+      case 2:
+        return  <Modal ><ModalContent/></Modal>
+      case 3:
+        return <button className="button" onClick={this.startTimer} > Reset </button>
+      default:
+      break;
     }
+  }
 
+  render() { 
+    /**
+     * Reduced amount of comparisons from the render funtion.
+     * 
+     * And Simplified Component  Names.
+     */
+    const {timeToGo, isLoggedIn} = this.state;
+    const { DefaultView, TimedOutView} = this.props
+    const count = (timeToGo > 0) ? timeToGo : ""
     return (
       <div>
-        <ViewContent isLoggedIn={isLoggedIn} {...this.props} />
-        {button}
-        <div>{count}</div>
+        {isLoggedIn ===3 ? 
+        <TimedOutView/>:
+        <DefaultView/>}
+      {this.renderSwitch()}   
+        <div className="count">{count}</div>
       </div>
       
     );
@@ -74,8 +85,8 @@ class AppTimeOut extends Component {
 }
 
 AppTimeOut.propTypes ={
-  View1 : PropTypes.func,
-  View2 : PropTypes.func,
+  DefaultView : PropTypes.func,
+  TimedOutView : PropTypes.func,
   mainTimeout : PropTypes.number,
   modalTimeout : PropTypes.number,
 }
@@ -83,21 +94,25 @@ AppTimeOut.propTypes ={
 AppTimeOut.defaultProps = {
   mainTimeout :10,
   modalTimeout : 5,
+  /**
+   * Moved Default props from the outside  App.js
+   */
+  DefaultView : DefaultComponent,
+  TimedOutView : LogoutComponent
 }
 
-function ViewContent(props) {
-  const {isLoggedIn, View1, View2} = props;
- 
-   if (isLoggedIn ===3){
-    return <View2/>
-  }else {
-    return <View1/>
-  }
-
-}
-
-
-
+/**
+ * Moved Modal compoennt to be Inner Component
+ *  */
+ const ModalContent = props =>  {
+   return (
+        <div className="modal__content">
+          <h3>Are you there?</h3> 
+          <button className="button" onClick={props.startTimer} >{'I\'m still here'}</button>
+        </div>
+   )
+ }
+  
 
 
 
