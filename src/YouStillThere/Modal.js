@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import ReactDOM from 'react-dom'
-
-const modalRoot = document.getElementById('modal-root');
+import {PropTypes} from 'prop-types'
+//const modalRoot = document.getElementById('modal-root');
 
 class Modal extends Component {
     constructor(props) {
@@ -12,11 +12,11 @@ class Modal extends Component {
     }
   
     componentDidMount() {
-      modalRoot.appendChild(this.el);
+      this.props.modalRoot.appendChild(this.el);
     }
   
     componentWillUnmount() {
-      modalRoot.removeChild(this.el);
+      this.props.modalRoot.removeChild(this.el);
     }
     
     render() {
@@ -25,6 +25,10 @@ class Modal extends Component {
         this.el,
       );
     }
+  }
+
+  Modal.defaultProps = {
+    modalRoot :document.getElementById('modal-root')
   }
 
   export default Modal

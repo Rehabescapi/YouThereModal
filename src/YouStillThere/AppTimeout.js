@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './component.css';
 import Modal from './Modal'
 import {PropTypes} from 'prop-types'
-import { DefaultComponent,LogoutComponent} from './TestViews'
+import { DefaultComponent, LogoutComponent} from './TestViews'
 
 class AppTimeOut extends Component {
   constructor(props) {
@@ -69,7 +69,7 @@ class AppTimeOut extends Component {
      * And Simplified Component  Names.
      */
     const {timeToGo, isLoggedIn} = this.state;
-    const { DefaultView, TimedOutView} = this.props
+    const { DefaultView, TimedOutView, timerEnable} = this.props
     const count = (timeToGo > 0) ? timeToGo : ""
     return (
       <div>
@@ -77,18 +77,19 @@ class AppTimeOut extends Component {
         <TimedOutView/>:
         <DefaultView/>}
       {this.renderSwitch()}   
-        <div className="count">{count}</div>
+        {timerEnable ?<div className="count">{count}</div> :null}
       </div>
       
     );
   }
 }
 
-AppTimeOut.propTypes ={
+AppTimeOut.propTypes = {
   DefaultView : PropTypes.func,
   TimedOutView : PropTypes.func,
   mainTimeout : PropTypes.number,
   modalTimeout : PropTypes.number,
+  timerEnable: PropTypes.bool
 }
 
 AppTimeOut.defaultProps = {
@@ -98,7 +99,9 @@ AppTimeOut.defaultProps = {
    * Moved Default props from the outside  App.js
    */
   DefaultView : DefaultComponent,
-  TimedOutView : LogoutComponent
+  TimedOutView : LogoutComponent,
+  ModalView : ModalContent,
+  timerEnable: true,
 }
 
 /**
