@@ -1,0 +1,18 @@
+.nav {
+  background: #333;
+  color: white;
+  display: flex;
+
+  &__list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+
+    &--item {
+      padding: 3rem 2rem;
+    }
+  }
+}

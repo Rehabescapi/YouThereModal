@@ -4,6 +4,16 @@ import Modal from './Modal'
 import {PropTypes} from 'prop-types'
 import { DefaultComponent, LogoutComponent} from './TestViews'
 
+const ModalContent = props =>  {
+  return (
+       <div className="modal__content">
+         <h3>Are you there?</h3> 
+         <button className="button" onClick={props.startTimer} >{'I\'m still here'}</button>
+       </div>
+  )
+}
+ 
+
 class AppTimeOut extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +22,10 @@ class AppTimeOut extends Component {
   }
 
   componentDidMount() {
+   if( this.props.children)
+   {
+     //this.props.DefaultView = this.props.children
+   }
    this.startTimer()
   }
 
@@ -50,11 +64,12 @@ class AppTimeOut extends Component {
 
   renderSwitch = () => {
     const {isLoggedIn} = this.state;
+
     switch (isLoggedIn){
       case 1:
         return undefined;  
       case 2:
-        return  <Modal ><ModalContent/></Modal>
+        return undefined// <Modal ><ModalContent/></Modal>
       case 3:
         return <button className="button" onClick={this.startTimer} > Reset </button>
       default:
@@ -69,13 +84,16 @@ class AppTimeOut extends Component {
      * And Simplified Component  Names.
      */
     const {timeToGo, isLoggedIn} = this.state;
-    const { DefaultView, TimedOutView, timerEnable} = this.props
+    const { DefaultView, TimedOutView, timerEnable,children} = this.props
+    let View1 , View2
+    View1 = children[0] || DefaultView;
+    View2 = children[1] || TimedOutView;
     const count = (timeToGo > 0) ? timeToGo : ""
     return (
-      <div>
+      <div >
         {isLoggedIn ===3 ? 
-        <TimedOutView/>:
-        <DefaultView/>}
+        View2:
+       View1}
       {this.renderSwitch()}   
         {timerEnable ?<div className="count">{count}</div> :null}
       </div>
@@ -107,16 +125,7 @@ AppTimeOut.defaultProps = {
 /**
  * Moved Modal compoennt to be Inner Component
  *  */
- const ModalContent = props =>  {
-   return (
-        <div className="modal__content">
-          <h3>Are you there?</h3> 
-          <button className="button" onClick={props.startTimer} >{'I\'m still here'}</button>
-        </div>
-   )
- }
-  
-
+ 
 
 
 
