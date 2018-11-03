@@ -3,13 +3,26 @@ import './component.css';
 import Modal from './Modal'
 import {PropTypes} from 'prop-types'
 import { DefaultComponent, LogoutComponent} from './TestViews'
-
+import uuidv4 from 'uuid/v4'
 const ModalContent = props =>  {
   return (
        <div className="modal__content">
          <h3>Are you there?</h3> 
-         <button className="button" onClick={props.startTimer} >{'I\'m still here'}</button>
        </div>
+  )
+}
+
+
+const ModalTemplate = props => {
+  const x = props.distinct? props.modalId : undefined
+  return (
+    <Modal distinct={props.distinct} target={props.modalId} >
+      <div className="modal__content">
+      {props.content}
+      <button className="button" onClick={props.startTimer} >{'I\'m still here'}</button>
+      {"Wooo"}
+      </div>
+    </Modal>
   )
 }
  
@@ -22,11 +35,7 @@ class AppTimeOut extends Component {
   }
 
   componentDidMount() {
-   if( this.props.children)
-   {
-     //this.props.DefaultView = this.props.children
-   }
-   this.startTimer()
+  this.startTimer()
   }
 
   startTimer =() => {
@@ -64,12 +73,12 @@ class AppTimeOut extends Component {
 
   renderSwitch = () => {
     const {isLoggedIn} = this.state;
-
+    
     switch (isLoggedIn){
       case 1:
         return undefined;  
       case 2:
-        return undefined// <Modal ><ModalContent/></Modal>
+        return <ModalTemplate content={this.props.ModalView} target={this.props.modalId}/>  
       case 3:
         return <button className="button" onClick={this.startTimer} > Reset </button>
       default:
@@ -84,18 +93,25 @@ class AppTimeOut extends Component {
      * And Simplified Component  Names.
      */
     const {timeToGo, isLoggedIn} = this.state;
-    const { DefaultView, TimedOutView, timerEnable,children} = this.props
+    const { DefaultView, TimedOutView, timerEnable,modalId, children} = this.props
     let View1 , View2
-    View1 = children[0] || DefaultView;
-    View2 = children[1] || TimedOutView;
-    const count = (timeToGo > 0) ? timeToGo : ""
+    
+    if(children.length ===2)
+    {
+    View1 = children[0]?  children[0] : DefaultView
+    View2 = children[1]? children[1]: TimedOutView;
+    }else 
+    {
+      View1 = children ? children : DefaultView
+    }
+
     return (
-      <div >
-        {isLoggedIn ===3 ? 
+      <div id={modalId} >
+        {isLoggedIn  === 3 ? 
         View2:
-       View1}
+        View1}
       {this.renderSwitch()}   
-        {timerEnable ?<div className="count">{count}</div> :null}
+        {timerEnable ?<div className="count">{(timeToGo > 0) ? timeToGo : ""}</div> :null}
       </div>
       
     );
@@ -111,8 +127,8 @@ AppTimeOut.propTypes = {
 }
 
 AppTimeOut.defaultProps = {
-  mainTimeout :10,
-  modalTimeout : 5,
+  mainTimeout :20,
+  modalTimeout : 10,
   /**
    * Moved Default props from the outside  App.js
    */
@@ -120,6 +136,7 @@ AppTimeOut.defaultProps = {
   TimedOutView : LogoutComponent,
   ModalView : ModalContent,
   timerEnable: true,
+  modalId : uuidv4(),
 }
 
 /**

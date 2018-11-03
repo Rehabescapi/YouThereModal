@@ -1,19 +1,20 @@
 import React from 'react';
-import Card from './Card';
 import data from './data';
 import AppTimeout from '../YouStillThere/AppTimeout'
 import {LogoutComponent} from '../YouStillThere/TestViews'
-
+import shifty from './ayt.gif';
 const Cards = () => {
   const constructedCards = data.map((card, index) => {
-    const CarMod = <Cardz header={card.header} content={card.content} />
-    console.log(CarMod)
-    console.log(card.header)
-    console.log(card.content)
-    return (<li key={index}>
-     <AppTimeout DefaultView={Cardz} mainTimeout={index} >
-     <Cardz header={card.header} content={card.content} />
-     <LogoutComponent/>
+   
+    return (<li key={index} className={index}>
+     <AppTimeout 
+     
+      distinct={false} 
+      ModalView={CustomModal()} 
+      >
+      <Card header={card.header} content={card.content}/>
+     
+     
      </AppTimeout>
      
     </li>);
@@ -26,7 +27,7 @@ const Cards = () => {
   );
 };
 
-function Cardz({header, content}){
+function Card ({header, content}){
   return (
     <div className="card">
       <div className="card__header">{header}</div>
@@ -34,6 +35,16 @@ function Cardz({header, content}){
     </div>
   
   );
+  };
+
+
+  const CustomModal = (props) => {
+    return (
+      
+          <img src={shifty} alt='Shifty' />
+         
+       
+    );
   };
 
 export default Cards;

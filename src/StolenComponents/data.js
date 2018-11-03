@@ -10,7 +10,7 @@ const data = [
     The heart-ache and the thousand natural shocks
     That flesh is heir to: 'tis a consummation
     Devoutly to be wish'd.`
-  },
+  },/*
   {
     'header': 'Is this love?',
     'content': `O Romeo, Romeo, wherefore art thou Romeo?
@@ -61,7 +61,7 @@ const data = [
     Invites me in this churlish messenger.
     None of my lord's ring? Why, he sent her none.
     I am the man. If it be so, as 'tis.`
-  },
+  },*/
 ];
 
 export default data;

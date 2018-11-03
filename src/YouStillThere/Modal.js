@@ -8,15 +8,15 @@ class Modal extends Component {
       super(props);
       this.el = document.createElement('div');
       this.el.className = "modal";
-     
+     this.modalRoot = document.getElementById(this.props.modalRoot)
     }
   
     componentDidMount() {
-      this.props.modalRoot.appendChild(this.el);
+      this.modalRoot.appendChild(this.el);
     }
   
     componentWillUnmount() {
-      this.props.modalRoot.removeChild(this.el);
+      this.modalRoot.removeChild(this.el);
     }
     
     render() {
@@ -28,7 +28,7 @@ class Modal extends Component {
   }
 
   Modal.defaultProps = {
-    modalRoot :document.getElementById('modal-root')
+    modalRoot :"modal-root"
   }
 
   export default Modal
