@@ -8,11 +8,32 @@
     margin-left: 5%;
 }
   
-  
+  //Global Modal
   #modal-root {
     position: relative;
     z-index: 999;
+   .modal {
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__content {
+      background-color: rgb(35, 10, 126);
+      margin: 0 auto;
+      text-align: center;
+      padding: 2.5rem 5rem;
+    }
   }
+}
+
+//distinct modal
+.anchor{
+
   
   .modal {
     background-color: rgba(0,0,0,0.5);
@@ -24,10 +45,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+      &__content {
+        background-color: rgb(100, 5, 5);
+        margin: 0 auto;
+        text-align: center;
+        padding: 2.5rem 5rem;
+      }
+      
+    }
   }
- 
+
 @import 'assets/scss/button.scss';
-@import 'assets/scss/modal.scss';
+
 @import 'assets/stolenassets/cards.scss';
 
 @import 'assets/stolenassets/nav.scss';

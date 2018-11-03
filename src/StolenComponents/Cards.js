@@ -8,8 +8,7 @@ const Cards = () => {
    
     return (<li key={index} className={index}>
      <AppTimeout 
-     
-      distinct={false} 
+      distinct={true} 
       ModalView={CustomModal()} 
       >
       <Card header={card.header} content={card.content}/>
@@ -21,9 +20,16 @@ const Cards = () => {
   });
 
   return (
+    <div>
     <ul className="cards">
       {constructedCards}
     </ul>
+   
+     </div>
+    
+   
+    
+    
   );
 };
 
