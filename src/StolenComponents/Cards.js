@@ -5,14 +5,15 @@ import uuidv4 from 'uuid/v4'
 import shifty from './ayt.gif';
 const Cards = () => {
   const constructedCards = data.map((card, index) => {
-   
+   let k = uuidv4()
+   console.log(k)
     return (<li key={index} className={index}>
      <AppTimeout 
       distinct={true} 
       ModalView={CustomModal()} 
-      modalId={uuidv4()}
+      modalId={k}
       >
-      <Card header={card.header} content={card.content}/>
+      <Card id={k} header={card.header} content={card.content}/>
      
      
      </AppTimeout>
@@ -34,9 +35,9 @@ const Cards = () => {
   );
 };
 
-function Card ({header, content}){
+function Card ({id, header, content}){
   return (
-    <div className="card">
+    <div id={id} className="card">
       <div className="card__header">{header}</div>
       <div className="card__content">{content}</div>
     </div>
@@ -45,7 +46,7 @@ function Card ({header, content}){
   };
 
 
-  const CustomModal = (props) => {
+  const CustomModal = () => {
     return (
       
           <img src={shifty} alt='Shifty' />

@@ -6,7 +6,7 @@ class Modal extends Component {
       super(props);
       this.el = document.createElement('div');
       this.el.className = "modal";
-     
+     console.log(this.props.modalRoot)
      this.modalRoot = document.getElementById(this.props.modalRoot)
     }
   

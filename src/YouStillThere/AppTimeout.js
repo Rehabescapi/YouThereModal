@@ -29,6 +29,9 @@ class AppTimeOut extends Component {
   componentDidMount() {
   this.startTimer()
   }
+  componentWillUnmount(){
+    clearInterval(this.interval)
+  }
 
   startTimer =() => {
     clearInterval(this.interval);
@@ -52,7 +55,7 @@ class AppTimeOut extends Component {
 
   Logout = () => {
     clearInterval(this.interval);
-    this.setState({isLoggedIn : 2, timeToGo:0});
+    this.setState({isLoggedIn : 3, timeToGo:0});
   }
 
   tick =() => {
@@ -75,7 +78,6 @@ class AppTimeOut extends Component {
         content={ModalView} 
         startTimer={this.startTimer} 
         target={distinct ? modalId : undefined}
-        
         />  
       case 3:
         return <button className="button" onClick={this.startTimer} > Reset </button>
@@ -91,21 +93,23 @@ class AppTimeOut extends Component {
      * And Simplified Component  Names.
      */
     const {timeToGo, isLoggedIn} = this.state;
-    const { DefaultView, TimedOutView, timerEnable,modalId, children} = this.props
+    const { DefaultView, TimedOutView, timerEnable, children} = this.props
     let View1 , View2
+    
     
     if(children && children.length ===2)
     {
-    View1 = children[0]?  children[0] : <DefaultView/>
+    View1 = children[0]?  children[0] : <DefaultView  />
     View2 = children[1]? children[1]: <TimedOutView/>
     }else 
     {
-      View1 = children ? children : <DefaultView/>
+      View1 = children ? children : <DefaultView  />
       View2 = <TimedOutView/>
     }
+    
 
     return (
-      <div id={modalId} className="anchor">
+      <div  className="anchor">
         {isLoggedIn  === 3 ? 
         View2:
         View1}
@@ -134,7 +138,7 @@ AppTimeOut.defaultProps = {
    */
   DefaultView : DefaultComponent,
   TimedOutView : LogoutComponent,
-  ModalView : ModalContent,
+  ModalView : ModalContent(),
   timerEnable: true,
   modalId : uuidv4(),
 }

@@ -15,14 +15,15 @@
    .modal {
     background-color: rgba(0,0,0,0.5);
     position: fixed;
-   
+    height: 100%;
+   width: 100%;
     top: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     &__content {
-      background-color: rgb(35, 10, 126);
+      background-color: rgb(10, 56, 126);
       margin: 0 1em;
       text-align: center;
       padding: 2.5rem 5rem;
@@ -32,9 +33,10 @@
 
 //distinct modal
 .anchor{
-  border: solid 5px #DDD;
 
-  position: relative;
+
+  text-align: center;
+  
   
  
   .modal {
@@ -46,7 +48,7 @@
    width: 100%;
    align-items: center;
    justify-content: center;
-    
+   top: 0;
       &__content {
         background-color: rgb(100, 5, 5);
         margin:1em;
@@ -55,7 +57,7 @@
         img{
           width: 80%;
           height: auto;
-          margin: 1em;
+          
         }
       }
       
