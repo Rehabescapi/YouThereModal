@@ -27,7 +27,7 @@ class AppTimeOut extends Component {
   }
 
   componentDidMount() {
- // this.startTimer()
+  this.startTimer()
   }
 
   startTimer =() => {
