@@ -1,7 +1,7 @@
 import React from 'react';
 import data from './data';
 import AppTimeout from '../YouStillThere/AppTimeout'
-import {LogoutComponent} from '../YouStillThere/TestViews'
+import uuidv4 from 'uuid/v4'
 import shifty from './ayt.gif';
 const Cards = () => {
   const constructedCards = data.map((card, index) => {
@@ -10,6 +10,7 @@ const Cards = () => {
      <AppTimeout 
       distinct={true} 
       ModalView={CustomModal()} 
+      modalId={uuidv4()}
       >
       <Card header={card.header} content={card.content}/>
      

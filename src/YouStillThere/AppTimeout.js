@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../assets/scss/modal.scss';
 import Modal from './Modal'
 import {PropTypes} from 'prop-types'
 import { DefaultComponent, LogoutComponent, ModalContent} from './TestViews'
@@ -28,7 +27,7 @@ class AppTimeOut extends Component {
   }
 
   componentDidMount() {
-  this.startTimer()
+ // this.startTimer()
   }
 
   startTimer =() => {
@@ -123,7 +122,8 @@ AppTimeOut.propTypes = {
   TimedOutView : PropTypes.func,
   mainTimeout : PropTypes.number,
   modalTimeout : PropTypes.number,
-  timerEnable: PropTypes.bool
+  timerEnable: PropTypes.bool,
+  modaId : PropTypes.string,
 }
 
 AppTimeOut.defaultProps = {

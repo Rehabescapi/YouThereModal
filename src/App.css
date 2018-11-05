@@ -12,8 +12,6 @@
   #modal-root .modal {
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
-    height: 100%;
-    width: 100%;
     top: 0;
     left: 0;
     display: flex;
@@ -21,25 +19,33 @@
     justify-content: center; }
     #modal-root .modal__content {
       background-color: #230a7e;
-      margin: 0 auto;
+      margin: 0 1em;
       text-align: center;
       padding: 2.5rem 5rem; }
 
-.anchor .modal {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  height: 100%;
+.anchor {
+  border: solid 5px #DDD;
+  position: relative;
   width: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-  .anchor .modal__content {
-    background-color: #640505;
-    margin: 0 auto;
-    text-align: center;
-    padding: 2.5rem 5rem; }
+  height: 100%; }
+  .anchor .modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 999;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center; }
+    .anchor .modal__content {
+      background-color: #640505;
+      margin: 1em;
+      text-align: center;
+      padding: 1em; }
+      .anchor .modal__content img {
+        width: 80%;
+        height: auto;
+        margin: 1em; }
 
 .button {
   background-color: white;
@@ -58,19 +64,27 @@
   list-style-type: none;
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  height: 600px; }
+  .cards li {
+    padding: 2%;
+    width: 20%;
+    height: 80%; }
 
 .card {
-  width: 35rem;
   border: 1px solid #eee;
   border-radius: 1rem;
   box-shadow: 0 4rem 5rem #efefef;
-  margin: 5rem; }
+  position: absolute;
+  z-index: 5;
+  min-width: 35rem;
+  min-width: 60px; }
   .card__header {
     background-color: #333;
     color: white;
     padding: 2rem 0;
-    text-align: center; }
+    text-align: center;
+    font-size: x-large; }
   .card__content {
     padding: 2rem 3rem; }
 
