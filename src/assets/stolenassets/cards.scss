@@ -3,13 +3,6 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  //height: 600px;
-  
-  li {
-   
-   padding: 2%;
-   
-  }
 }
 
 
@@ -20,18 +13,20 @@
   box-shadow: 0 4rem 5rem #efefef;
   position: relative;
   z-index: 5;
-  width: 35rem;
+  width: 23rem;
+  margin-bottom: 2rem;
+  margin: 2rem;
   
 
   &__header { 
     background-color: #333;
     color: white;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     text-align: center;
     
   }
 
   &__content {
-    padding: 2rem 3rem;
+    padding: 1.5rem 3rem;
   }
 }

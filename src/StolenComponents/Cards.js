@@ -12,6 +12,7 @@ const Cards = () => {
       distinct={true} 
       ModalView={CustomModal()} 
       modalId={k}
+      TestStage={2}
       >
       <Card id={k} header={card.header} content={card.content}/>
      

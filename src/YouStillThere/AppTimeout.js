@@ -24,10 +24,12 @@ class AppTimeOut extends Component {
     super(props);
     this.state = {isLoggedIn: 1,
     timeToGo : -1};
+    console.log(this.props.TestStage)
   }
 
   componentDidMount() {
-  this.startTimer()
+  
+   ( this.props.TestStage === 0) ? this.startTimer() : this.setState({isLoggedIn:this.props.TestStage})
   }
   componentWillUnmount(){
     clearInterval(this.interval)
@@ -128,6 +130,7 @@ AppTimeOut.propTypes = {
   modalTimeout : PropTypes.number,
   timerEnable: PropTypes.bool,
   modaId : PropTypes.string,
+  TestStage : PropTypes.number, 
 }
 
 AppTimeOut.defaultProps = {
@@ -141,6 +144,7 @@ AppTimeOut.defaultProps = {
   ModalView : ModalContent(),
   timerEnable: true,
   modalId : uuidv4(),
+  TestStage : 0, 
 }
 
 /**
