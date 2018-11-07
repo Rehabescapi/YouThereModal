@@ -11,8 +11,8 @@ const Cards = () => {
      <AppTimeout 
       distinct={true} 
       ModalView={CustomModal()} 
-      modalId={k}
-      TestStage={2}
+      modalIdTarget={k}
+      mainTimeout={(index+1)*3}
       >
       <Card id={k} header={card.header} content={card.content}/>
      

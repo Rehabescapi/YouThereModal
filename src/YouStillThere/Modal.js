@@ -6,7 +6,18 @@ class Modal extends Component {
       super(props);
       this.el = document.createElement('div');
       this.el.className = "modal";
-     console.log(this.props.modalRoot)
+
+      /**
+       * Duck tape solution
+       * this is mostly a proof of concept of ensuring a generic
+       * 
+       *  */
+
+     
+     if(this.props.duration != 0 && this.props.genericAnimation ){
+     this.el.style ='animation: Darken infinite '+this.props.duration+'s linear;'
+     }
+
      this.modalRoot = document.getElementById(this.props.modalRoot)
     }
   
@@ -27,7 +38,9 @@ class Modal extends Component {
   }
 
   Modal.defaultProps = {
-    modalRoot :"modal-root"
+    modalRoot :"modal-root",
+    duration : 0,
+    genericAnimation : true,
   }
 
   export default Modal

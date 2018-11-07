@@ -4,17 +4,17 @@ import {PropTypes} from 'prop-types'
 import { DefaultComponent, LogoutComponent, ModalContent} from './TestViews'
 import uuidv4 from 'uuid/v4'
 
-
 const ModalTemplate = props => {
- 
   return (
-    <Modal modalRoot={props.target} >
-      <div className="modal__content">
+   
+    <Modal modalRoot={props.target} duration={props.modalTimeout}>
+      <div className="modal__content" >
       {props.content}
       <button className="button" onClick={props.startTimer} >{'I\'m still here'}</button>
      
       </div>
     </Modal>
+  
   )
 }
  
@@ -24,7 +24,7 @@ class AppTimeOut extends Component {
     super(props);
     this.state = {isLoggedIn: 1,
     timeToGo : -1};
-    console.log(this.props.TestStage)
+   
   }
 
   componentDidMount() {
@@ -39,7 +39,7 @@ class AppTimeOut extends Component {
     clearInterval(this.interval);
     this.interval = setInterval(
       () => {
-        if(this.state.timeToGo > 0) {
+        if(this.state.timeToGo > 1) {
           this.setState(prevState => ({
             timeToGo : prevState.timeToGo -1
           }))
@@ -70,7 +70,7 @@ class AppTimeOut extends Component {
 
   renderSwitch = () => {
     const {isLoggedIn} = this.state;
-    const { ModalView, modalId, distinct} = this.props
+    const { ModalView, modalIdTarget, distinct, modalTimeout} = this.props
     
     switch (isLoggedIn){
       case 1:
@@ -79,7 +79,8 @@ class AppTimeOut extends Component {
         return <ModalTemplate 
         content={ModalView} 
         startTimer={this.startTimer} 
-        target={distinct ? modalId : undefined}
+        target={distinct ? modalIdTarget : undefined}
+        modalTimeout={modalTimeout}
         />  
       case 3:
         return <button className="button" onClick={this.startTimer} > Reset </button>
@@ -129,7 +130,7 @@ AppTimeOut.propTypes = {
   mainTimeout : PropTypes.number,
   modalTimeout : PropTypes.number,
   timerEnable: PropTypes.bool,
-  modaId : PropTypes.string,
+  modalIdTarget : PropTypes.string,
   TestStage : PropTypes.number, 
 }
 
