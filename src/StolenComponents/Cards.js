@@ -7,7 +7,10 @@ const Cards = () => {
   const constructedCards = data.map((card, index) => {
    let k = uuidv4()
    console.log(k)
-    return (<li key={index} className={index}>
+    return (
+    
+    
+    <li key={index} className={index}>
      <AppTimeout 
       distinct={true} 
       ModalView={CustomModal()} 
@@ -15,8 +18,6 @@ const Cards = () => {
       mainTimeout={(index+1)*3}
       >
       <Card id={k} header={card.header} content={card.content}/>
-     
-     
      </AppTimeout>
      
     </li>);
@@ -24,10 +25,10 @@ const Cards = () => {
 
   return (
     <div>
+      <p className="challenge">YOUR MISSION, SHOULD YOU CHOOSE TO ACCEPT IT, IS TO READ EVERYTHING ON THE PAGE AND MEMORIZE IT</p>
     <ul className="cards">
       {constructedCards}
     </ul>
-   
      </div>
     
    

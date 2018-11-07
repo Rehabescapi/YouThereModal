@@ -14,7 +14,7 @@ class Modal extends Component {
        *  */
 
      
-     if(this.props.duration != 0 && this.props.genericAnimation ){
+     if(this.props.duration !== 0 && this.props.genericAnimation ){
      this.el.style ='animation: Darken infinite '+this.props.duration+'s linear;'
      }
 
