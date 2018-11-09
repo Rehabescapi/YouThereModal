@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppTimeout from './AppTimeout';
-import App from '../App'
+import ModalContainer from '../ModalContainer';
+import App from '../../App'
 import Enzyme , {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -15,14 +15,14 @@ it('renders without crashing', () => {
 describe(' happyPath', function () {
 it('defaults to state 1', () => {
 
-  const component = shallow(<AppTimeout />);
+  const component = shallow(<ModalContainer />);
   expect(component.state().isLoggedIn).toEqual(1);
 
   
 })
 
 it('continues to state 2', () => {
-  const component = shallow(<AppTimeout />);
+  const component = shallow(<ModalContainer />);
 
   component.instance().tick();
   expect(component.state().isLoggedIn).toEqual(2);
@@ -30,7 +30,7 @@ it('continues to state 2', () => {
 })
 
 it('continues from state 3 to state 2', () => {
-  const component = shallow(<AppTimeout/>);
+  const component = shallow(<ModalContainer/>);
 
 
   component.instance().tick();
@@ -41,7 +41,7 @@ it('continues from state 3 to state 2', () => {
 })
 
 it('Can return from state 2 to state 1', () => {
-  const component = shallow(<AppTimeout />);
+  const component = shallow(<ModalContainer />);
 
 
   component.instance().tick();
@@ -51,7 +51,7 @@ it('Can return from state 2 to state 1', () => {
 })
 
 it('Can return to state 1 from state 3', () => {
-  const component = shallow(<AppTimeout/>);
+  const component = shallow(<ModalContainer/>);
 
 
   component.instance().tick();

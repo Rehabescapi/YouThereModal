@@ -1,10 +1,10 @@
 import React ,{Component} from 'react'
-import AppTimeout from '../YouStillThere/AppTimeout'
+import ModalContainer from '../YouStillThere/ModalContainer'
 
 class MainContainer extends Component {
     
     render() {
-        return  <AppTimeout/>
+        return  <ModalContainer/>
     }
 }
 

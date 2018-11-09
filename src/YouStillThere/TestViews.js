@@ -1,10 +1,12 @@
 import React from 'react'
-export function DefaultComponent(props) {
-    return <h1>Welcome Wait for Modal!</h1>;
+import Modal from './Modal'
+
+export function DefaultComponent() {
+    return <h1>Modal Generic First View</h1>;
   }
   
- export function LogoutComponent(props) {
-    return <h1>Please Reconnect</h1>;
+ export function LogoutComponent() {
+    return <h1>Click Below to log back in!!!</h1>;
   }
 
   export function ModalContent ()  {
@@ -15,3 +17,17 @@ export function DefaultComponent(props) {
     )
   }
   
+  export const DefaultTemplate = props => {
+    return (
+     
+      <Modal modalRoot={props.target} duration={props.modalTimeout}>
+        <div className="modal__content" >
+        {props.content}
+        <button className="button" onClick={props.startTimer} >{'I\'m still here'}</button>
+       
+        </div>
+      </Modal>
+    
+    )
+  }
+   

@@ -1,0 +1,72 @@
+
+  //Global Modal
+  #modal-root {
+    position: relative;
+    z-index: 999;
+   .modal {
+   
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    height: 100%;
+   width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__content {
+      background-color: rgb(10, 56, 126);
+      margin: 0 1em;
+      text-align: center;
+      padding: 2.5rem 5rem;
+    }
+  }
+}
+
+
+@keyframes Darken {
+  from {
+    background-color: rgba(0,0,0,0.5);
+  }
+  to {
+    background-color: rgba(0, 0, 0,0.9);
+  }
+}
+
+
+
+//distinct modal
+.anchor{
+
+
+  text-align: center;
+  
+  
+ 
+  .modal {
+    background-color: rgba(0,0,0,0.5);
+   // animation: Darken infinite 5s linear;
+   position: absolute;
+   z-index: 999;
+   display: flex;
+   height: 100%;
+   width: 100%;
+   align-items: center;
+   justify-content: center;
+   top: 0;
+      &__content {
+        background-color: rgb(100, 5, 5);
+        margin:1em;
+        width: 65%;
+        height: auto;
+        text-align: center;
+        padding: 1em;
+        img{
+          width: 80%;
+          height: auto;
+          
+        }
+      }
+      
+    }
+  }

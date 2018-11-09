@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import ReactDOM from 'react-dom'
-
+import {PropTypes} from 'prop-types'
 class Modal extends Component {
     constructor(props) {
       super(props);
@@ -10,7 +10,7 @@ class Modal extends Component {
       /**
        * Duck tape solution
        * this is mostly a proof of concept of ensuring a generic
-       * 
+       * css animation
        *  */
 
      
@@ -35,6 +35,12 @@ class Modal extends Component {
         this.el,
       );
     }
+  }
+
+  Modal.propTypes = {
+    modalRoot: PropTypes.string,
+    duration : PropTypes.number,
+    genericAnimation : PropTypes.bool
   }
 
   Modal.defaultProps = {

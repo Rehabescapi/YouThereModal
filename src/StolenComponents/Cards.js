@@ -1,34 +1,29 @@
 import React from 'react';
 import data from './data';
-import AppTimeout from '../YouStillThere/AppTimeout'
+import ModalContainer from '../YouStillThere/ModalContainer'
 import uuidv4 from 'uuid/v4'
 import shifty from './ayt.gif';
 const Cards = () => {
   const constructedCards = data.map((card, index) => {
    let k = uuidv4()
-   console.log(k)
     return (
-    
-    
     <li key={index} className={index}>
-     <AppTimeout 
+     <ModalContainer 
       distinct={true} 
-      ModalView={CustomModal()} 
+      ModalView={ShiftyContent()} 
       modalIdTarget={k}
       mainTimeout={(index+1)*3}
       >
       <Card id={k} header={card.header} content={card.content}/>
-     </AppTimeout>
-     
+     </ModalContainer>
     </li>);
   });
 
   return (
     <div>
-      <p className="challenge">YOUR MISSION, SHOULD YOU CHOOSE TO ACCEPT IT, IS TO READ EVERYTHING ON THE PAGE AND MEMORIZE IT</p>
-    <ul className="cards">
+        <ul className="cards">
       {constructedCards}
-    </ul>
+        </ul>
      </div>
     
    
@@ -48,12 +43,9 @@ function Card ({id, header, content}){
   };
 
 
-  const CustomModal = () => {
+  const ShiftyContent = () => {
     return (
-      
-          <img src={shifty} alt='Shifty' />
-         
-       
+          <img src={shifty} alt='Shifty' />  
     );
   };
 

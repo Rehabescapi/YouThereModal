@@ -1,25 +1,12 @@
 import React, { Component } from 'react';
-import Modal from './Modal'
+
 import {PropTypes} from 'prop-types'
-import { DefaultComponent, LogoutComponent, ModalContent} from './TestViews'
+import { DefaultComponent, LogoutComponent, ModalContent, DefaultTemplate} from './TestViews'
 import uuidv4 from 'uuid/v4'
 
-const ModalTemplate = props => {
-  return (
-   
-    <Modal modalRoot={props.target} duration={props.modalTimeout}>
-      <div className="modal__content" >
-      {props.content}
-      <button className="button" onClick={props.startTimer} >{'I\'m still here'}</button>
-     
-      </div>
-    </Modal>
-  
-  )
-}
- 
 
-class AppTimeOut extends Component {
+
+class ModalContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {isLoggedIn: 1,
@@ -70,7 +57,7 @@ class AppTimeOut extends Component {
 
   renderSwitch = () => {
     const {isLoggedIn} = this.state;
-    const { ModalView, modalIdTarget, distinct, modalTimeout} = this.props
+    const { ModalView, modalIdTarget, distinct, modalTimeout, ModalTemplate} = this.props
     
     switch (isLoggedIn){
       case 1:
@@ -99,7 +86,7 @@ class AppTimeOut extends Component {
     const { DefaultView, TimedOutView, timerEnable, children} = this.props
     let View1 , View2
     
-    
+    //Had Trouble sending component pieces into the container so this was the better solution.
     if(children && children.length ===2)
     {
     View1 = children[0]?  children[0] : <DefaultView  />
@@ -109,10 +96,8 @@ class AppTimeOut extends Component {
       View1 = children ? children : <DefaultView  />
       View2 = <TimedOutView/>
     }
-    
-
     return (
-      <div  className="anchor">
+      <div className="anchor">
         {isLoggedIn  === 3 ? 
         View2:
         View1}
@@ -124,7 +109,7 @@ class AppTimeOut extends Component {
   }
 }
 
-AppTimeOut.propTypes = {
+ModalContainer.propTypes = {
   DefaultView : PropTypes.func,
   TimedOutView : PropTypes.func,
   mainTimeout : PropTypes.number,
@@ -132,9 +117,10 @@ AppTimeOut.propTypes = {
   timerEnable: PropTypes.bool,
   modalIdTarget : PropTypes.string,
   TestStage : PropTypes.number, 
+  ModalTemplate : PropTypes.func.isRequired
 }
 
-AppTimeOut.defaultProps = {
+ModalContainer.defaultProps = {
   mainTimeout :10,
   modalTimeout : 5,
   /**
@@ -146,14 +132,15 @@ AppTimeOut.defaultProps = {
   timerEnable: true,
   modalId : uuidv4(),
   TestStage : 0, 
+  ModalTemplate : DefaultTemplate,
 }
 
 /**
- * Moved Modal compoennt to be Inner Component
+ * Moved Modal component to be Inner Component
  *  */
  
 
 
 
 
-export default AppTimeOut;
+export default ModalContainer;
