@@ -46,7 +46,8 @@ class Modal extends Component {
   Modal.defaultProps = {
     modalRoot :"modal-root",
     duration : 0,
-    genericAnimation : true,
+    //expand on this its annoying
+    genericAnimation : false,
   }
 
   export default Modal
