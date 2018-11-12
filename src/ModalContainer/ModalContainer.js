@@ -57,7 +57,7 @@ class ModalContainer extends Component {
 
   renderSwitch = () => {
     const {isLoggedIn} = this.state;
-    const { ModalView, modalIdTarget, distinct, modalTimeout, ModalTemplate} = this.props
+    const { ModalView, modalIdTarget, distinct, modalTimeout, ModalTemplate, loginEnabled} = this.props
     
     switch (isLoggedIn){
       case 1:
@@ -70,7 +70,7 @@ class ModalContainer extends Component {
         modalTimeout={modalTimeout}
         />  
       case 3:
-        return <button className="button" onClick={this.startTimer} > Reset </button>
+        return loginEnabled=== true ? <button className="button" onClick={this.startTimer} > Reset </button> : undefined
       default:
       break;
     }
@@ -91,6 +91,7 @@ class ModalContainer extends Component {
     {
     View1 = children[0]?  children[0] : <DefaultView  />
     View2 = children[1]? children[1]: <TimedOutView/>
+    View2 = React.cloneElement(View2, { startTimer : this.startTimer})
     }else 
     {
       View1 = children ? children : <DefaultView  />
@@ -112,14 +113,16 @@ class ModalContainer extends Component {
 ModalContainer.propTypes = {
   DefaultView : PropTypes.func,
   TimedOutView : PropTypes.func,
-  ModalView: PropTypes.func,
+ // ModalView: PropTypes.func, I'm not declaring this properly
   mainTimeout : PropTypes.number,
   modalTimeout : PropTypes.number,
   timerEnable: PropTypes.bool,
   distinct : PropTypes.bool,
   modalIdTarget : PropTypes.string,
   TestStage : PropTypes.number, 
-  ModalTemplate : PropTypes.func.isRequired
+  ModalTemplate : PropTypes.func.isRequired,
+
+  loginEnabled : PropTypes.bool
 }
 
 ModalContainer.defaultProps = {
@@ -128,10 +131,12 @@ ModalContainer.defaultProps = {
   DefaultView : DefaultComponent,
   TimedOutView : LogoutComponent,
   ModalView : ModalContent(),
-  timerEnable: true,
+  timerEnable: false,
+  loginEnabled : true,
   modalId : uuidv4(),
   TestStage : 0, 
   ModalTemplate : DefaultTemplate,
+  
 }
 
 /**

@@ -2,8 +2,10 @@ import React from 'react';
 import { DragSource } from 'react-dnd';
 import { PropTypes } from 'prop-types';
 import { ITEM } from './itemTypes';
+import WaterCan  from './assets/WateringCan.png'
+import Shovel from './assets/Shovel.png'
 
-const Source = ({ color, connectDragSource, isDragging }) => (
+const Source = ({ color, connectDragSource, isDragging  }) => (
   connectDragSource(
     <div
      className="board__sources__source"
@@ -11,7 +13,10 @@ const Source = ({ color, connectDragSource, isDragging }) => (
        backgroundColor: color,
        opacity: isDragging ? 0.25 : 1,
       }}
-    />
+    >
+    {color ==='blue' ? <img src={WaterCan}/> :<img src={Shovel}/>}
+   
+    </div>
   )
 );
 
@@ -25,7 +30,8 @@ const source = {
   beginDrag(props) {
     const { color } = props;
     return ({
-      color,
+      color
+      
     });
   },
   endDrag(props, monitor) {
@@ -34,11 +40,10 @@ const source = {
     }
     const { onDrop } = props;
     const { color } = monitor.getItem();
-    const { shape, onClick } = monitor.getDropResult();
-    console.log(monitor.getDropResult())
+    const { shape, onClick ,icon } = monitor.getDropResult();
 
    
-    onDrop(color, shape, onClick);
+    onDrop(color, shape, onClick, icon);
   },
 };
 

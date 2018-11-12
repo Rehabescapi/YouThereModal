@@ -1,0 +1,60 @@
+
+.flowerCard {
+ 
+    border: 1px solid #eee;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem #385e3c;
+    position: relative;
+    z-index: 5;
+    width: 10rem;
+    height: auto;
+    
+    margin: 2rem;
+   
+
+
+  &__content {
+    border-radius: 1rem;
+   
+   height: 85%;
+   
+   
+
+   h3 {
+   
+    background-color: rgb(211, 211, 211);
+   
+    border-radius: 1rem;
+    display: inline-block;
+  
+   
+}
+  }
+
+  img {
+    border-radius: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .modal {
+
+    &__content {
+        background-color: #163642;
+
+        div {
+            margin: 0.25rem;
+            background: rgb(150, 150, 150);
+            border-radius: 1rem;
+        }
+       
+    }
+  }
+  }
+
+  .Dead {
+    background-color: #2e2e1d;
+  }
+
+  .Alive{
+    background-color: #385e3c;
+  }

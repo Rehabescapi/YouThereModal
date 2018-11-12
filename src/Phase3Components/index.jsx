@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
+import {Redirect} from 'react-router'
 import Drop from './Drop';
 import Source from './Source';
 import Target from './Target';
 import GameOver from './GameOver';
 import './Board.css';
 import uuidv4 from 'uuid/v4'
+import Flower from './assets/Flowey_Talk_normal.gif'
+import Angry from './assets/FloweyDeathNeutral.png'
+import Hurt from './assets/FloweyHurt.png'
+import Dead from './assets/FloweyDead.png'
+
+
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
 
 import ModalContainer from '../ModalContainer/ModalContainer'
 import Modal from '../ModalContainer/Modal'
@@ -19,7 +27,8 @@ class Board extends Component {
     };
   }
 
-  handleDrop(color, shape, onClick) {
+  handleDrop(color, shape , onClick) {
+
     const { drops } = this.state;
     const nextDrops = [...drops, {
       color,
@@ -28,51 +37,70 @@ class Board extends Component {
     this.setState({
       drops: nextDrops,
     });
-
-    if(color === "red" && shape ==="square"){
-      onClick();
-    }
+    onClick();
   }
 
   render() {
     const { drops } = this.state;
-    var x = uuidv4()
-    var z = uuidv4()
+    var Fid1 = uuidv4();
+    var Fid2 = uuidv4();
+    var Fid3 = uuidv4();
+    var Fid4 = uuidv4();
+  
     return (
       <div id="board">
         <div id="board__sources">
-          <Source color="red" onDrop={this.handleDrop} />
-          <Source color="green" onDrop={this.handleDrop} />
           <Source color="blue" onDrop={this.handleDrop} />
+          <Source color="red" onDrop={this.handleDrop} />
+         
         </div>
+        <div className="board__breaker" />
         <div id="board__targets">
         <ModalContainer distinct={true} 
-        modalIdTarget={x}
+        modalIdTarget={Fid1}
         mainTimeout={5}
         modalTimeout={10}
-        ModalTemplate={AngryFlowerModal}>
-          <Card id={x}/>
-         
+        
+        ModalTemplate={AngryFlowerModal}
+        loginEnabled={false}
+        >
+          <Card id={Fid1}/>
+          <Redirect to='/Phase0'/>
         </ModalContainer>
 
          <ModalContainer distinct={true} 
-        modalIdTarget={z}
+         
+        modalIdTarget={Fid2}
         mainTimeout={8}
         modalTimeout={5}
-        ModalTemplate={HappyFlowerModal}>
-          <Card id={z}/>
+        ModalTemplate={HurtFlowerModal}
+        loginEnabled={false}>
+          <Card id={Fid2} alive = {true}/>
+          <DeadCard/>
         </ModalContainer>
         
+        <ModalContainer distinct={true} 
+        
+        modalIdTarget={Fid3}
+        mainTimeout={8}
+        modalTimeout={5}
+        ModalTemplate={HurtFlowerModal}
+        loginEnabled={false}>
+          <Card id={Fid3}/>
+          <DeadCard/>
+        </ModalContainer>
+       
+        <ModalContainer distinct={true} 
+        modalIdTarget={Fid4}
+        mainTimeout={8}
+        modalTimeout={5}
+        ModalTemplate={HurtFlowerModal}
+        loginEnabled={false}>
+          <Card id={Fid4}/>
+          <DeadCard/>
+        </ModalContainer>
         </div>
-        <div id="board__drops">
-          {drops.map((drop, i) => (
-            <Drop
-              color={drop.color}
-              key={i}
-              shape={drop.shape}
-            />
-          ))}
-        </div>
+       
       </div>
     );
   }
@@ -80,26 +108,42 @@ class Board extends Component {
 
 
 
-function Card ({id}){
+function Card ({id, alive}){
   return (
-    <div  className="card">
-    <div id={id} className="board__sources__source_empty">
-    <img src={'../assets/'}
+    <div  className="flowerCard Alive">
+    <div id={id} className="flowerCard__content board__sources__source_empty">
+    
+    <img src={Flower}/>
+    <h3> Life is good</h3>
     </div>
     
     </div>
   
   );
   };
+  function DeadCard ({id, startTimer}){
+    
+    return (
+      <div  className="flowerCard Dead">
+      <div id={id} className="flowerCard__content board__sources__source_empty">
+      <Target shape="square" icon={Dead} onClick={startTimer} />
+     
+      <h3>Oops Try Again</h3>
+      </div>
+      
+      </div>
+    
+    );
+    };
 
 
-const HappyFlowerModal = props => {
+const HurtFlowerModal = props => {
   return (
    
     <Modal modalRoot={props.target} duration={props.modalTimeout}>
       <div className="modal__content" >
-      <Target shape="square" onClick={props.startTimer} />
-      
+      <Target shape="square" icon={Hurt} onClick={props.startTimer} />
+      <div>Its thirsty</div>
       
       </div>
     </Modal>
@@ -112,8 +156,8 @@ const AngryFlowerModal = props => {
    
     <Modal modalRoot={props.target} duration={props.modalTimeout}>
       <div className="modal__content" >
-      <Target shape="square" onClick={props.startTimer} />
-      
+      <Target shape="square" icon={Angry} onClick={props.startTimer}  />
+      <div> Dear Lord</div>
       
       </div>
     </Modal>

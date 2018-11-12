@@ -2,14 +2,16 @@ import React from 'react'
 import Modal from './Modal'
 
 export function DefaultComponent() {
-    return <h1>Modal Generic First View</h1>;
+    return <div><h1>Modal Generic First View</h1>
+    <h3>After About 10 Seconds a Modal will appear outside the Document Structure and envelop the screen</h3>
+    </div>;
   }
   
  export function LogoutComponent() {
-    return <h1>Click Below to log back in!!!</h1>;
+    return <h1>Click below to log back in!!!</h1>;
   }
 
-  export function ModalContent ()  {
+  export const ModalContent = () =>  {
     return (
          <div className="modal__content">
            <h3>Are you there?</h3> 

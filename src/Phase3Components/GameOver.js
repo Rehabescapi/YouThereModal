@@ -7,12 +7,12 @@ class  GameOver extends Component {
     }
     render () {
         if( this.state.toPhase0){
-            return <Redirect to='/Phase0'/>
+            return <Redirect to='/GameOver'/>
         }
         return(
             <div>
                 <h3> 
-                    Go away
+                    You Lose
                     </h3>
             </div>
         )

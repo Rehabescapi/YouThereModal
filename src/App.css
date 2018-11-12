@@ -6,6 +6,19 @@
   color: blue;
   margin-left: 5%; }
 
+.button {
+  background-color: white;
+  padding: 1rem 2rem;
+  border: 2px solid #542cb1;
+  color: #542cb1;
+  border-radius: 0.5rem;
+  display: block;
+  margin: 0 auto; }
+  .button:hover {
+    cursor: pointer;
+    background-color: #542cb1;
+    color: white; }
+
 #modal-root {
   position: relative;
   z-index: 999; }
@@ -43,30 +56,20 @@
     align-items: center;
     justify-content: center;
     top: 0;
-  left: 0; }
+    left: 0;
+    border-radius: 1rem; }
     .anchor .modal__content {
       background-color: #640505;
+      border-radius: 1rem;
       margin: 1em;
       width: 65%;
-      height: auto;
+      height: 70%;
       text-align: center;
       padding: 1em; }
       .anchor .modal__content img {
+        border-radius: 1rem;
         width: 80%;
         height: auto; }
-
-.button {
-  background-color: white;
-  padding: 1rem 2rem;
-  border: 2px solid #542cb1;
-  color: #542cb1;
-  border-radius: 0.5rem;
-  display: block;
-  margin: 0 auto; }
-  .button:hover {
-    cursor: pointer;
-    background-color: #542cb1;
-    color: white; }
 
 .cards {
   list-style-type: none;
@@ -106,6 +109,38 @@
       margin: 1rem;
       padding: 2px;
       background: white; }
+
+.flowerCard {
+  border: 1px solid #eee;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem #385e3c;
+  position: relative;
+  z-index: 5;
+  width: 10rem;
+  height: auto;
+  margin: 2rem; }
+  .flowerCard__content {
+    border-radius: 1rem;
+    height: 85%; }
+    .flowerCard__content h3 {
+      background-color: lightgray;
+      border-radius: 1rem;
+      display: inline-block; }
+  .flowerCard img {
+    border-radius: 1rem;
+    margin-top: 0.5rem; }
+  .flowerCard .modal__content {
+    background-color: #163642; }
+    .flowerCard .modal__content div {
+      margin: 0.25rem;
+      background: #969696;
+      border-radius: 1rem; }
+
+.Dead {
+  background-color: #2e2e1d; }
+
+.Alive {
+  background-color: #385e3c; }
 
 .challenge {
   text-align: center;

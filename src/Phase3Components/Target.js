@@ -3,13 +3,21 @@ import { DropTarget } from 'react-dnd';
 import { PropTypes } from 'prop-types';
 import { ITEM } from './itemTypes';
 
-const Target = ({ connectDropTarget, highlighted, shape }) => (
+import Angry from './assets/FloweyDeathNeutral.png'
+import Hurt from './assets/FloweyHurt.png'
+import Dead from './assets/FloweyDead.png'
+
+const Target = ({ connectDropTarget, highlighted, shape ,icon}) => (
   
   connectDropTarget(
     <div
       className={`board__targets__target board__targets__target--${shape}`}
-      style={{ backgroundColor: highlighted ? 'black' : 'white' }}
-    />
+      style={{ backgroundColor: highlighted ? (icon === Angry? 'red': 'blue') : 'white' }}
+    >
+   
+    <img src={icon}/>
+
+    </div>
   )
 );
 
@@ -20,13 +28,22 @@ Target.propTypes = {
 }
 
 const target = {
+  canDrop(props, monitor){
+
+    let source = monitor.getItem();
+    
+    if( (source.color === "red" && (props.icon ===Angry || props.icon===Dead)) || (source.color==="blue" && props.icon ===Hurt)){
+     return true;
+    }
+    return false;
+  },
   drop(props) {
-    console.log(props)
-    const { shape, onClick } = props;
+   
+    const { shape, onClick, icon } = props;
     //Can Propagate functions north.
     //onClick();
     return ({
-      shape,onClick
+      shape, onClick, icon
     });
   }
 }
