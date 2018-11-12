@@ -1,5 +1,5 @@
 import React ,{Component} from 'react'
-import ModalContainer from '../YouStillThere/ModalContainer'
+import ModalContainer from '../ModalContainer/ModalContainer'
 
 class MainContainer extends Component {
     

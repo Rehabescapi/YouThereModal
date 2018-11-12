@@ -1,6 +1,6 @@
 import React from 'react';
 import data from './data';
-import ModalContainer from '../YouStillThere/ModalContainer'
+import ModalContainer from '../ModalContainer/ModalContainer'
 import uuidv4 from 'uuid/v4'
 import shifty from './ayt.gif';
 const Cards = () => {

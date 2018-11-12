@@ -86,7 +86,7 @@ class ModalContainer extends Component {
     const { DefaultView, TimedOutView, timerEnable, children} = this.props
     let View1 , View2
     
-    //Had Trouble sending component pieces into the container so this was the better solution.
+    //Had trouble sending component pieces into the container so this was the better solution.
     if(children && children.length ===2)
     {
     View1 = children[0]?  children[0] : <DefaultView  />
@@ -112,9 +112,11 @@ class ModalContainer extends Component {
 ModalContainer.propTypes = {
   DefaultView : PropTypes.func,
   TimedOutView : PropTypes.func,
+  ModalView: PropTypes.func,
   mainTimeout : PropTypes.number,
   modalTimeout : PropTypes.number,
   timerEnable: PropTypes.bool,
+  distinct : PropTypes.bool,
   modalIdTarget : PropTypes.string,
   TestStage : PropTypes.number, 
   ModalTemplate : PropTypes.func.isRequired
@@ -123,9 +125,6 @@ ModalContainer.propTypes = {
 ModalContainer.defaultProps = {
   mainTimeout :10,
   modalTimeout : 5,
-  /**
-   * Moved Default props from the outside  App.js
-   */
   DefaultView : DefaultComponent,
   TimedOutView : LogoutComponent,
   ModalView : ModalContent(),
