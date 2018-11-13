@@ -19,8 +19,8 @@ const App = () => (
    <Nav/>
      
     <Switch>
-    <Route exact path ="/" component={IntroComponent}/>
-      <Route path ="/Phase1" component={MainContainer}/>
+   
+      <Route exact path ="/" component={MainContainer}/>
       <Route path ="/Phase2" component={Phase2Example}/>
       <Route path ="/Phase3" component={Phase3Container}/>
       <Route path ="/GameOver" component={GameOverComponent}/>

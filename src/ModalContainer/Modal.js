@@ -47,7 +47,7 @@ class Modal extends Component {
     modalRoot :"modal-root",
     duration : 0,
     //expand on this its annoying
-    genericAnimation : false,
+    genericAnimation : true,
   }
 
   export default Modal

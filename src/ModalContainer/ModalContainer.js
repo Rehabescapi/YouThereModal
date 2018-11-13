@@ -58,7 +58,7 @@ class ModalContainer extends Component {
 
   renderSwitch = () => {
     const {isLoggedIn} = this.state;
-    const { ModalView, modalIdTarget, distinct, modalTimeout, ModalTemplate, loginEnabled} = this.props
+    const { ModalView, modalId, distinct, modalTimeout, ModalTemplate, loginEnabled} = this.props
     
     switch (isLoggedIn){
       case 1:
@@ -67,7 +67,7 @@ class ModalContainer extends Component {
         return <ModalTemplate 
         content={ModalView} 
         startTimer={this.startTimer} 
-        target={distinct ? modalIdTarget : undefined}
+        target={distinct ? modalId : undefined}
         modalTimeout={modalTimeout}
         />  
       case 3:
@@ -88,6 +88,9 @@ class ModalContainer extends Component {
     let View1 , View2
     
     //Had trouble sending component pieces into the container so this was the better solution.
+     /**
+     * This should be 
+     */
     if(children && children.length ===2)
     {
     View1 = children[0]?  children[0] : <DefaultView  />
@@ -98,6 +101,13 @@ class ModalContainer extends Component {
       View1 = children ? children : <DefaultView  />
       View2 = <TimedOutView/>
     }
+    console.log(this.props.modalId)
+    View1 = React.cloneElement(View1, {id : this.props.modalId})
+   
+
+
+
+
     return (
       <div className="anchor">
         {isLoggedIn  === 3 ? 

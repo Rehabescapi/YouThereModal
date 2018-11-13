@@ -102,7 +102,6 @@
     padding: 0;
     display: flex;
     flex: 1;
-    justify-content: space-between;
     align-items: center; }
     .nav__list li {
       float: left; }
@@ -161,3 +160,27 @@
   height: auto;
   align-content: center;
   margin: 2rem; }
+
+.BreakDownContent {
+  position: absolute;
+  z-index: 999;
+  width: 40%;
+  max-width: 35em;
+  height: auto;
+  left: 0;
+  padding: 2em;
+  margin: 1em;
+  border: 1px black solid;
+  background-color: white; }
+  .BreakDownContent p, .BreakDownContent div {
+    margin: 0.5em; }
+
+.intro {
+  padding: 2em;
+  margin: 1em;
+  position: relative;
+  border: 1px black solid;
+  background-color: white;
+  width: 40%;
+  height: auto;
+  float: auto; }

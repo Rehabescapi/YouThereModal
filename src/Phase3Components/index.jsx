@@ -57,46 +57,46 @@ class Board extends Component {
         <div className="board__breaker" />
         <div id="board__targets">
         <ModalContainer distinct={true} 
-        modalIdTarget={Fid1}
+        modalId={Fid1}
         mainTimeout={5}
         modalTimeout={10}
         
-        ModalTemplate={AngryFlowerModal}
+        ModalTemplate={HurtFlowerModal}
         loginEnabled={false}
         >
-          <Card id={Fid1}/>
-          <Redirect to='/GameOver'/>
+          <Card />
+          <DeadCard/>
         </ModalContainer>
 
          <ModalContainer distinct={true} 
          
-        modalIdTarget={Fid2}
+        modalId={Fid2}
         mainTimeout={8}
         modalTimeout={5}
         ModalTemplate={HurtFlowerModal}
         loginEnabled={false}>
-          <Card id={Fid2} alive = {true}/>
+          <Card />
           <DeadCard/>
         </ModalContainer>
         
         <ModalContainer distinct={true} 
         
-        modalIdTarget={Fid3}
-        mainTimeout={8}
-        modalTimeout={5}
-        ModalTemplate={HurtFlowerModal}
+        modalId={Fid3}
+        mainTimeout={15}
+        modalTimeout={7}
+        ModalTemplate={AngryFlowerModal}
         loginEnabled={false}>
-          <Card id={Fid3}/>
-          <DeadCard/>
+          <Card />
+          <Redirect to='/GameOver'/>
         </ModalContainer>
        
         <ModalContainer distinct={true} 
-        modalIdTarget={Fid4}
+        modalId={Fid4}
         mainTimeout={8}
         modalTimeout={5}
         ModalTemplate={HurtFlowerModal}
         loginEnabled={false}>
-          <Card id={Fid4}/>
+          <Card />
           <DeadCard/>
         </ModalContainer>
         </div>

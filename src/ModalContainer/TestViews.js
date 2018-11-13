@@ -4,7 +4,7 @@ import Modal from './Modal'
 export function DefaultComponent() {
     return <div><h1>Modal Generic First View</h1>
     <h3>After About 10 Seconds a Modal will appear outside the Document Structure and envelop the screen</h3>
-    </div>;
+    </div>
   }
   
  export function LogoutComponent() {

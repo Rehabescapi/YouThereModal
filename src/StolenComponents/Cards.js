@@ -11,10 +11,10 @@ const Cards = () => {
      <ModalContainer 
       distinct={true} 
       ModalView={ShiftyContent()} 
-      modalIdTarget={k}
+      modalId={k}
       mainTimeout={(index+1)*3}
       >
-      <Card id={k} header={card.header} content={card.content}/>
+      <Card header={card.header} content={card.content}/>
      </ModalContainer>
     </li>);
   });

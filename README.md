@@ -38,16 +38,18 @@ ModalContainer.propTypes:
 
 
 Phase 1 Goal
-Implement a MVP Modal Product
-With minor testing
+Implement a MVP Modal Product :Completed
+With minor testing :Completed
 
 Phase 2 Goals
-Create Inner Component MVP 
-Learn form existing code And ensure Modal style remains professional.
+Create Inner Component MVP  : Completed
+Learn form existing code And ensure Modal style remains professional. : Completed
 
 
 Phase 3 Goals 
 
-Implement Drag and Drop Minigame
+Implement Drag and Drop Minigame : Completed
 
-Add some background darken transisitions.
+Add some background darken transisitions. Completed
+
+Phase 4 Goals
