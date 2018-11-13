@@ -1,7 +1,6 @@
 .nav {
   background: #333;
-  color: white;
-  display: flex; }
+  color: white; }
   .nav__list {
     list-style-type: none;
     padding: 0;
@@ -9,7 +8,16 @@
     flex: 1;
     justify-content: space-between;
     align-items: center; }
-    .nav__list--item {
-      margin: 1rem;
-      padding: 2px;
-      background: white; }
+    .nav__list li {
+      float: left; }
+      .nav__list li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none; }
+      .nav__list li a:hover:not(.active) {
+        background-color: #111; }
+
+.active {
+  background-color: #3020c0; }

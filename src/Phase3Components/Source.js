@@ -14,7 +14,7 @@ const Source = ({ color, connectDragSource, isDragging  }) => (
        opacity: isDragging ? 0.25 : 1,
       }}
     >
-    {color ==='blue' ? <img src={WaterCan}/> :<img src={Shovel}/>}
+    {color ==='blue' ? <img alt="WaterCan" src={WaterCan}/> :<img alt="Shovel" src={Shovel}/>}
    
     </div>
   )

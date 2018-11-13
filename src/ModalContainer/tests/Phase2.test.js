@@ -38,3 +38,9 @@ it('It uses a non default modal template', () => {
   
 
 })
+
+
+it('Component States stay internal', () => {
+  
+
+})

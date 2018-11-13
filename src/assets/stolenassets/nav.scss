@@ -1,7 +1,7 @@
 .nav {
   background: #333;
   color: white;
-  display: flex;
+ 
 
   &__list {
     list-style-type: none;
@@ -11,10 +11,25 @@
     justify-content: space-between;
     align-items: center;
 
-    &--item {
-      margin: 1rem;
-      padding: 2px;
-      background: white
+    li {
+      float: left;
+      a {
+        display : block;
+        color : white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      a:hover:not(.active) {
+        background-color: #111;
+      }
+
+      
     }
   }
+}
+
+.active {
+  background-color:rgb(48, 32, 192);
 }

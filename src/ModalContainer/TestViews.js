@@ -8,7 +8,7 @@ export function DefaultComponent() {
   }
   
  export function LogoutComponent() {
-    return <h1>Click below to log back in!!!</h1>;
+    return <h1>Reset Component </h1>;
   }
 
   export const ModalContent = () =>  {

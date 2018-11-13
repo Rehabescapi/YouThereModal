@@ -9,7 +9,8 @@ import uuidv4 from 'uuid/v4'
 class ModalContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {isLoggedIn: 1,
+    this.state = {
+      isLoggedIn: 1,
     timeToGo : -1};
    
   }
@@ -121,7 +122,6 @@ ModalContainer.propTypes = {
   modalIdTarget : PropTypes.string,
   TestStage : PropTypes.number, 
   ModalTemplate : PropTypes.func.isRequired,
-
   loginEnabled : PropTypes.bool
 }
 
@@ -139,10 +139,6 @@ ModalContainer.defaultProps = {
   
 }
 
-/**
- * Moved Modal component to be Inner Component
- *  */
- 
 
 
 

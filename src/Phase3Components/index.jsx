@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router'
-import Drop from './Drop';
+
 import Source from './Source';
 import Target from './Target';
-import GameOver from './GameOver';
+
 import './Board.css';
 import uuidv4 from 'uuid/v4'
 import Flower from './assets/Flowey_Talk_normal.gif'
@@ -41,7 +41,7 @@ class Board extends Component {
   }
 
   render() {
-    const { drops } = this.state;
+    
     var Fid1 = uuidv4();
     var Fid2 = uuidv4();
     var Fid3 = uuidv4();
@@ -65,7 +65,7 @@ class Board extends Component {
         loginEnabled={false}
         >
           <Card id={Fid1}/>
-          <Redirect to='/Phase0'/>
+          <Redirect to='/GameOver'/>
         </ModalContainer>
 
          <ModalContainer distinct={true} 
@@ -113,7 +113,7 @@ function Card ({id, alive}){
     <div  className="flowerCard Alive">
     <div id={id} className="flowerCard__content board__sources__source_empty">
     
-    <img src={Flower}/>
+    <img alt="Flower" src={Flower}/>
     <h3> Life is good</h3>
     </div>
     

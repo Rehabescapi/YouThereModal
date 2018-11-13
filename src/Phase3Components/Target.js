@@ -15,7 +15,7 @@ const Target = ({ connectDropTarget, highlighted, shape ,icon}) => (
       style={{ backgroundColor: highlighted ? (icon === Angry? 'red': 'blue') : 'white' }}
     >
    
-    <img src={icon}/>
+    <img alt="WaterCan" src={icon}/>
 
     </div>
   )

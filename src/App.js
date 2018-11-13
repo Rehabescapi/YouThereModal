@@ -9,7 +9,7 @@ import Phase3Container  from './containers/Phase3Container'
 
 import {BrowserRouter  ,Route, Switch} from 'react-router-dom'
 
-
+import {IntroComponent, GameOverComponent} from './utilityComponents/IntroComponent'
 
 const App = () => (
   
@@ -19,9 +19,11 @@ const App = () => (
    <Nav/>
      
     <Switch>
+    <Route exact path ="/" component={IntroComponent}/>
       <Route path ="/Phase1" component={MainContainer}/>
       <Route path ="/Phase2" component={Phase2Example}/>
       <Route path ="/Phase3" component={Phase3Container}/>
+      <Route path ="/GameOver" component={GameOverComponent}/>
     </Switch>
       </div>
   </BrowserRouter>
