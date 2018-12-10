@@ -9,7 +9,7 @@ Enzyme.configure({adapter: new Adapter()});
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<ModalContainer />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 describe(' happyPath', function () {

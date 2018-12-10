@@ -17,6 +17,8 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
+
+    "prestart": "yarn test",
     "start": "PORT=3001 react-scripts start",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",

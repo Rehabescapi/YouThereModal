@@ -9,9 +9,10 @@ Enzyme.configure({adapter: new Adapter()});
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<ModalContainer />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+/*
 describe(' happyPath', function () {
 it('defaults to state 1', () => {
 
@@ -43,4 +44,4 @@ it('It uses a non default modal template', () => {
 it('Component States stay internal', () => {
   
 
-})
+})*/
