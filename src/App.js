@@ -24,11 +24,22 @@ const App = () => (
       <Route path ="/Phase2" component={Phase2Example}/>
       <Route path ="/Phase3" component={Phase3Container}/>
       <Route path ="/GameOver" component={GameOverComponent}/>
+      <Route component={NoMatch} />
     </Switch>
       </div>
   </BrowserRouter>
   
 )
+
+
+
+ const NoMatch = () =>  {
+  return (
+       <div className="modal__content">
+         <h3>404 Page not Found</h3> 
+       </div>
+  )
+}
 
 
 export default App

@@ -6,6 +6,47 @@ yarn add  "enzyme" and  "enzyme-adapter-react-16"
 yarn run test and yarn run start.
 
 
+This was origionally intended to be a simple design project that 
+I have been interating. With the initial scope being a 'Modal component',
+I found a way to create a simple drag and drop game using my modal container and 
+some stolen assets. 
+
+That was Phase 3...
+The scope of Phase 4 is to set up better TDD principles on this project before I dig myself 
+into a bigger hole on a project or missed error.
+
+Things to implement
+-- A state of modal manager,
+      Here the timing window will ge shorter as the game goes on.
+      Also rather than the bad plant be set on load it should be determined either
+      on stage 1 or 2. 
+
+
+--A point monitor to see when a user ends the game. 
+      Currently it ends when the bad plant festers too long.
+      Preffered 
+
+--More Testing
+      Right now there is a fair amount ot practice code happening in the modal Container,
+      I've already broke pieces improving it and failed to notice my test were failing. 
+      
+      -- Better Documentation.
+
+Current PLan was to perform this with a redux state management. But was not able to perform this before the coding challenge this week. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ModalContainer.propTypes:
   DefaultView : PropTypes.func,
   TimedOutView : 
