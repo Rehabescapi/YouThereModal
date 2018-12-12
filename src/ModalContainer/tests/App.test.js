@@ -45,7 +45,7 @@ it('Can return from state 2 to state 1', () => {
 
 
   component.instance().tick();
-  component.instance().handleLoginClick();
+  component.instance().startTimer();
   expect(component.state().isLoggedIn).toEqual(1);
 
 })
@@ -57,7 +57,7 @@ it('Can return to state 1 from state 3', () => {
   component.instance().tick();
   component.instance().tick();
 
-  component.instance().handleLoginClick();
+  component.instance().startTimer();
   expect(component.state().isLoggedIn).toEqual(1);
 
 })

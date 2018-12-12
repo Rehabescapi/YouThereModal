@@ -25,6 +25,7 @@ class Board extends Component {
     this.state = {
       drops: [],
     };
+   
   }
 
   handleDrop(color, shape , onClick) {
@@ -41,12 +42,8 @@ class Board extends Component {
   }
 
   render() {
+    const {Fid1, Fid2, Fid3, Fid4} = this.props;
     
-    var Fid1 = uuidv4();
-    var Fid2 = uuidv4();
-    var Fid3 = uuidv4();
-    var Fid4 = uuidv4();
-  
     return (
       <div id="board">
         <div id="board__sources">
@@ -106,6 +103,12 @@ class Board extends Component {
   }
 }
 
+Board.defaultProps ={
+   Fid1 : uuidv4(),
+     Fid2 : uuidv4(),
+     Fid3 : uuidv4(),
+     Fid4 : uuidv4(),
+}
 
 
 function Card ({id, alive}){

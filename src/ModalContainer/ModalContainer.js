@@ -18,6 +18,8 @@ class ModalContainer extends Component {
   componentDidMount() {
   
    ( this.props.TestStage === 0) ? this.startTimer() : this.setState({isLoggedIn:this.props.TestStage})
+
+   
   }
   componentWillUnmount(){
     clearInterval(this.interval)
@@ -58,7 +60,8 @@ class ModalContainer extends Component {
 
   renderSwitch = () => {
     const {isLoggedIn} = this.state;
-    const { ModalView, modalId, distinct, modalTimeout, ModalTemplate, loginEnabled} = this.props
+    const { ModalView, modalId, distinct, modalTimeout, ModalTemplate, ResetButtonEnabled
+} = this.props
     
     switch (isLoggedIn){
       case 1:
@@ -71,7 +74,8 @@ class ModalContainer extends Component {
         modalTimeout={modalTimeout}
         />  
       case 3:
-        return loginEnabled=== true ? <button className="button" onClick={this.startTimer} > Reset </button> : undefined
+        return ResetButtonEnabled
+    === true ? <button className="button" onClick={this.startTimer} > Reset </button> : undefined
       default:
       break;
     }
@@ -89,7 +93,7 @@ class ModalContainer extends Component {
     
     //Had trouble sending component pieces into the container so this was the better solution.
      /**
-     * This should be 
+     * This should be elsewhere either in conponent will mount or render.
      */
     if(children && children.length ===2)
     {
@@ -101,7 +105,9 @@ class ModalContainer extends Component {
       View1 = children ? children : <DefaultView  />
       View2 = <TimedOutView/>
     }
-    console.log(this.props.modalId)
+    /**
+     * Todo Modal containers are not staying rendered correctly
+     */
     View1 = React.cloneElement(View1, {id : this.props.modalId})
    
 
@@ -132,7 +138,7 @@ ModalContainer.propTypes = {
   modalIdTarget : PropTypes.string,
   TestStage : PropTypes.number, 
   ModalTemplate : PropTypes.func.isRequired,
-  loginEnabled : PropTypes.bool
+  ResetButtonEnabled : PropTypes.bool
 }
 
 ModalContainer.defaultProps = {
@@ -140,12 +146,15 @@ ModalContainer.defaultProps = {
   modalTimeout : 5,
   DefaultView : DefaultComponent,
   TimedOutView : LogoutComponent,
-  ModalView : ModalContent(),
+  
   timerEnable: false,
-  loginEnabled : true,
-  modalId : uuidv4(),
+  ResetButtonEnabled : true,
+  
   TestStage : 0, 
   ModalTemplate : DefaultTemplate,
+
+  ModalView : ModalContent(),
+  modalId : uuidv4(),
   
 }
 

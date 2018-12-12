@@ -18,7 +18,7 @@ export default class BreakDown extends Component {
     }
 
     render () {
-        console.log(this.props)
+        
         return (this.state.visible? <div><button onClick={this.toggle}> -- </button> <div className="BreakDownContent"> {this.props.children}</div> </div>: <button onClick={this.toggle}> + </button>)
     }
 }

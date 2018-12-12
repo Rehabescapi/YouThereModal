@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ModalContainer from '../ModalContainer';
-import App from '../../App'
+import Phase2Example from '../../containers/Phase2Example'
+
 import Enzyme , {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({adapter: new Adapter()});
+
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<ModalContainer />, div);
+  ReactDOM.render(<Phase2Example />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 /*

@@ -1,0 +1,14 @@
+
+Simple drag and drop game, User will wait for a Card to reach stage 2
+
+
+Users Gain points when successfully Dropping right appropriate color on targets when needed.
+Users will lose points when they are miss a 'bad seed' Reducing the total amount of points possibe.
+
+
+As the game goes on, the window for stage 2 will become shorter making it more likely that points will fail.
+This will result in either a good plant dying and requireing a user to lose points to bring it back to life, 
+or to lose the game if a bad seed survives long enough. 
+
+
+
