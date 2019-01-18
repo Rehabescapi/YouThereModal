@@ -22,6 +22,8 @@ class Modal extends Component {
     }
   
     componentDidMount() {
+      console.log(this.props.modalRoot);
+      debugger;
       this.modalRoot.appendChild(this.el);
     }
   

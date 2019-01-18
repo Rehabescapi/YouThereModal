@@ -55,9 +55,9 @@ class Board extends Component {
         <div id="board__targets">
         <ModalContainer distinct={true} 
         modalId={Fid1}
-        mainTimeout={5}
-        modalTimeout={10}
-        
+        mainTimeout={1}
+        modalTimeout={4}
+        //TestStage={2}
         ModalTemplate={HurtFlowerModal}
         loginEnabled={false}
         >
@@ -104,6 +104,7 @@ class Board extends Component {
 }
 
 Board.defaultProps ={
+  //doesn't need to be a distinct id.
    Fid1 : uuidv4(),
      Fid2 : uuidv4(),
      Fid3 : uuidv4(),
@@ -146,7 +147,7 @@ const HurtFlowerModal = props => {
     <Modal modalRoot={props.target} duration={props.modalTimeout}>
       <div className="modal__content" >
       <Target shape="square" icon={Hurt} onClick={props.startTimer} />
-      <div>Its thirsty</div>
+      <div >Its thirsty</div>
       
       </div>
     </Modal>
