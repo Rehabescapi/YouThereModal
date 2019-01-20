@@ -13,6 +13,7 @@ class ModalContainer extends Component {
       isLoggedIn: 1,
     timeToGo : -1};
    
+   
   }
 
   componentDidMount() {
@@ -70,8 +71,10 @@ class ModalContainer extends Component {
         return <ModalTemplate 
         content={ModalView} 
         startTimer={this.startTimer} 
-        target={distinct ? modalId : undefined}
+        distinct={distinct}
+        target = {modalId}
         modalTimeout={modalTimeout}
+       
         />  
       case 3:
         return ResetButtonEnabled
@@ -108,7 +111,7 @@ class ModalContainer extends Component {
     /**
      * Todo Modal containers are not staying rendered correctly
      */
-    View1 = React.cloneElement(View1, {id : this.props.modalId})
+    View1 = React.cloneElement(View1, {id : this.props.modalId })
    
 
 

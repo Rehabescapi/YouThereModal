@@ -20,9 +20,10 @@ export function DefaultComponent() {
   }
   
   export const DefaultTemplate = props => {
+    console.log("Default " + props)
+    console.log(props)
     return (
-     
-      <Modal modalRoot={props.target} duration={props.modalTimeout}>
+      <Modal distinct={props.distinct} target={props.target} duration={props.modalTimeout}>
         <div className="modal__content" >
         {props.content}
         <button className="button" onClick={props.startTimer} >{'I\'m still here'}</button>

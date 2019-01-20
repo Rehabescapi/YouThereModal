@@ -55,16 +55,16 @@ class Board extends Component {
         <div id="board__targets">
         <ModalContainer distinct={true} 
         modalId={Fid1}
-        mainTimeout={1}
+        mainTimeout={1} 
         modalTimeout={4}
-        //TestStage={2}
+       
         ModalTemplate={HurtFlowerModal}
         loginEnabled={false}
         >
           <Card />
           <DeadCard/>
         </ModalContainer>
-
+        
          <ModalContainer distinct={true} 
          
         modalId={Fid2}
@@ -96,6 +96,7 @@ class Board extends Component {
           <Card />
           <DeadCard/>
         </ModalContainer>
+        
         </div>
        
       </div>
@@ -142,12 +143,13 @@ function Card ({id, alive}){
 
 
 const HurtFlowerModal = props => {
+  
   return (
    
-    <Modal modalRoot={props.target} duration={props.modalTimeout}>
+    <Modal distinct={props.distinct} target={props.target} duration={props.modalTimeout}>
       <div className="modal__content" >
       <Target shape="square" icon={Hurt} onClick={props.startTimer} />
-      <div >Its thirsty</div>
+      <div className="Dying__plant">Its thirsty</div>
       
       </div>
     </Modal>
@@ -158,7 +160,7 @@ const HurtFlowerModal = props => {
 const AngryFlowerModal = props => {
   return (
    
-    <Modal modalRoot={props.target} duration={props.modalTimeout}>
+    <Modal distinct={props.distinct} target={props.target} duration={props.modalTimeout}>
       <div className="modal__content" >
       <Target shape="square" icon={Angry} onClick={props.startTimer}  />
       <div> Dear Lord</div>
