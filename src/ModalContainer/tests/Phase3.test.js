@@ -27,42 +27,29 @@ it('renders without crashing', () => {
 })
 
 
-describe('Basic Functions of the Game', function () {
+describe('Basic Phases of the Game', function () {
     beforeAll(() => {
         const div = document.createElement('div');
         window.domNode = div;
         document.body.appendChild(div);
       })
 
+      let wrapper
+      beforeEach(()=> {
+          wrapper = mount (<div><Phase3Container/>
+            <div id="modal-root">
+            </div></div>, {attachTo: window.domNode});
+      })
     it('renders 4 Modal Containers' , () => {
         const wrapper = mount(<Phase3Container/>);
         
 
         expect(wrapper.find("ModalContainer" ).length).toEqual(4);
         
-        
-        
-        
-        //const div = document.createElement('div');
-        //ReactDOM.render(<Phase3Container/>, div);
-/*
-
-        const wrapper = shallow(<Phase3Container/>);
-        console.log(wrapper.html());
-        console.log();
-        console.log();
-        console.log();
-        console.log();
-        console.log();
-
-        expect(wrapper.find("ModalContainer" ).length).toEqual(4);
-*/
     });
 
     it('Flower 0 changes', async () => {
-        const wrapper = mount (<div><Phase3Container/>
-                                 <div id="modal-root">
-                                 </div></div>, {attachTo: window.domNode});
+        
 
 
         var a = wrapper.find("ModalContainer").first().text()
@@ -93,13 +80,9 @@ wrapper.unmount();
 
 
     it('Flower 0 changes to third phase', async () => {
-        const wrapper = mount (<div><Phase3Container/>
-                                 <div id="modal-root">
-                                 </div></div>, {attachTo: window.domNode});
-
+        
        
-        var a = wrapper.find("ModalContainer").first().text()
-
+       
         expect(wrapper.find("ModalContainer").first().text().trim()).toEqual("Life is good");
         
         //wrapper.instance().child().tick();
@@ -112,6 +95,18 @@ wrapper.unmount();
         expect(wrapper.find("ModalContainer").first().text().trim()).toEqual("Oops Try Again Reset");
        
 
-        }
-    )
+        wrapper.unmount();
+        })
+
+    it('Flowers can revert back to stage on 1', ()=> {
+
+        expect(wrapper.find("ModalContainer").first().text().trim()).toEqual("Life is good");
+        wrapper.find("ModalContainer").first().instance().tick();
+
+        wrapper.find("ModalContainer").first().instance().tick();
+
+        expect(wrapper.find("ModalContainer").first().text().trim()).toEqual("Oops Try Again Reset");
+
+      //  wrapper.find()
+    })
 })

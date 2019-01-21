@@ -1,4 +1,5 @@
 
+describe("tests", ()=> {
     it('Flower 0 changes', async () => {
         
         console.log(wrapper.html());
@@ -66,6 +67,5 @@
        wrapper.find("ModalContainer").first().instance().tick();
        
         expect(wrapper.find("ModalContainer").first().text().trim()).toEqual("Oops Try Again Reset");
-    }
-    )
+    })
 })

@@ -18,6 +18,12 @@ import HTML5Backend from 'react-dnd-html5-backend';
 
 import ModalContainer from '../ModalContainer/ModalContainer'
 import Modal from '../ModalContainer/Modal'
+
+/**
+ * Temp Board State to ttest with before I create a Target Factory.
+ * 
+ */
+
 class Board extends Component {
   constructor(props) {
     super(props);
@@ -42,8 +48,6 @@ class Board extends Component {
   }
 
   render() {
-    const {Fid1, Fid2, Fid3, Fid4} = this.props;
-    
     return (
       <div id="board">
         <div id="board__sources">
@@ -57,7 +61,7 @@ class Board extends Component {
         modalId={Fid1}
         mainTimeout={1} 
         modalTimeout={4}
-       
+        setState={2}
         ModalTemplate={HurtFlowerModal}
         loginEnabled={false}
         >
@@ -70,6 +74,7 @@ class Board extends Component {
         modalId={Fid2}
         mainTimeout={8}
         modalTimeout={5}
+        setState={1}
         ModalTemplate={HurtFlowerModal}
         loginEnabled={false}>
           <Card />
@@ -81,6 +86,7 @@ class Board extends Component {
         modalId={Fid3}
         mainTimeout={15}
         modalTimeout={7}
+        setState={2}
         ModalTemplate={AngryFlowerModal}
         loginEnabled={false}>
           <Card />
@@ -91,6 +97,7 @@ class Board extends Component {
         modalId={Fid4}
         mainTimeout={8}
         modalTimeout={5}
+        setState={3}
         ModalTemplate={HurtFlowerModal}
         loginEnabled={false}>
           <Card />
@@ -106,14 +113,11 @@ class Board extends Component {
 
 Board.defaultProps ={
   //doesn't need to be a distinct id.
-   Fid1 : uuidv4(),
-     Fid2 : uuidv4(),
-     Fid3 : uuidv4(),
-     Fid4 : uuidv4(),
+   
 }
 
 
-function Card ({id, alive}){
+export function Card ({id, alive}){
   return (
     <div  className="flowerCard Alive">
     <div id={id} className="flowerCard__content board__sources__source_empty">
@@ -126,7 +130,7 @@ function Card ({id, alive}){
   
   );
   };
-  function DeadCard ({id, startTimer}){
+  export function DeadCard ({id, startTimer}){
     
     return (
       <div  className="flowerCard Dead">
@@ -157,7 +161,7 @@ export const HurtFlowerModal = props => {
   )
 }
 
-const AngryFlowerModal = props => {
+export const AngryFlowerModal = props => {
   return (
    
     <Modal distinct={props.distinct} target={props.target} duration={props.modalTimeout}>

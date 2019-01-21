@@ -2935,6 +2935,16 @@ dnd-core@^6.0.0:
     lodash "^4.17.11"
     redux "^4.0.1"
 
+dnd-core@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/dnd-core/-/dnd-core-7.0.2.tgz#6c080eb57243fa0372fd083b3db242d9eb525010"
+  integrity sha512-InwRBi6zTndtE3+3nTYpLJkYMEr7utSR7OziAoSFhtQsbUfJE1KeqxM+ZFRIMKn6ehxUTAC+QU6QC7IG9u86Mg==
+  dependencies:
+    asap "^2.0.6"
+    invariant "^2.2.4"
+    lodash "^4.17.11"
+    redux "^4.0.1"
+
 dns-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/dns-equal/-/dns-equal-1.0.0.tgz#b39e7f1da6eb0a75ba9c17324b34753c47e0654d"
@@ -8123,6 +8133,14 @@ react-dnd-html5-backend@^6.0.0:
   integrity sha512-NRaApaf3IBrE/LgOCoTqbsI1MT5HKIBDkyMF1zoJUy+slW/RLjLuxMC2gYU1Y89Ra/e7CQ5Hw/gJY7oIXLK32g==
   dependencies:
     dnd-core "^6.0.0"
+    lodash "^4.17.11"
+
+react-dnd-test-backend@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/react-dnd-test-backend/-/react-dnd-test-backend-7.0.2.tgz#b92171d1dc643ea1b19c867ceacaf7d2765c3d21"
+  integrity sha512-M5CuMEoaJecQNsvWKdzsWxtEsuCrI1w/JqU8/xbTKU0+/9p2xayzkb19m3MBalaCJtuRjmWLWl3bVfoF3efdXg==
+  dependencies:
+    dnd-core "^7.0.2"
     lodash "^4.17.11"
 
 react-dnd@^6.0.0:
