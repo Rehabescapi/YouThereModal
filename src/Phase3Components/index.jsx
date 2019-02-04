@@ -82,7 +82,9 @@ class Board extends Component {
         mainTimeout={15}
         modalTimeout={7}
         ModalTemplate={AngryFlowerModal}
-        loginEnabled={false}>
+        loginEnabled={false}
+        TestStage={2}>
+        
           <Card />
           <Redirect to='/GameOver'/>
         </ModalContainer>

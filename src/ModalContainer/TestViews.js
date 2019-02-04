@@ -24,10 +24,12 @@ export function DefaultComponent() {
     console.log(props)
     return (
       <Modal distinct={props.distinct} target={props.target} duration={props.modalTimeout}>
+        <div>
         <div className="modal__content" >
         {props.content}
         <button className="button" onClick={props.startTimer} >{'I\'m still here'}</button>
        
+        </div>
         </div>
       </Modal>
     

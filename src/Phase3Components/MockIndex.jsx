@@ -48,6 +48,7 @@ class Board extends Component {
   }
 
   render() {
+    const {Fid1, Fid2, Fid3, Fid4} = this.props;
     return (
       <div id="board">
         <div id="board__sources">
@@ -61,7 +62,7 @@ class Board extends Component {
         modalId={Fid1}
         mainTimeout={1} 
         modalTimeout={4}
-        setState={2}
+        TestStage={2}
         ModalTemplate={HurtFlowerModal}
         loginEnabled={false}
         >
@@ -74,7 +75,7 @@ class Board extends Component {
         modalId={Fid2}
         mainTimeout={8}
         modalTimeout={5}
-        setState={1}
+        TestStage={1}
         ModalTemplate={HurtFlowerModal}
         loginEnabled={false}>
           <Card />
@@ -86,7 +87,7 @@ class Board extends Component {
         modalId={Fid3}
         mainTimeout={15}
         modalTimeout={7}
-        setState={2}
+        TestStage={2}
         ModalTemplate={AngryFlowerModal}
         loginEnabled={false}>
           <Card />
@@ -97,7 +98,7 @@ class Board extends Component {
         modalId={Fid4}
         mainTimeout={8}
         modalTimeout={5}
-        setState={3}
+        TestStage={3}
         ModalTemplate={HurtFlowerModal}
         loginEnabled={false}>
           <Card />
